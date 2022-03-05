@@ -1,0 +1,137 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{cmap}					% поиск в PDF
+\usepackage[T2A]{fontenc}			% кодировка
+\usepackage[utf8]{inputenc}			% кодировка исходного текста
+\usepackage[english,russian]{babel}	% локализация и переносы
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm,mathtools}
+\usepackage{icomma}
+
+\usepackage{ amssymb }
+\usepackage{ dsfont }
+\mathtoolsset{showonlyrefs=true}
+
+\usepackage{euscript}
+\usepackage{mathrsfs}
+\usepackage{latexsym}
+
+\usepackage{graphicx} 
+\usepackage{array}
+\usepackage{textcomp}
+
+\renewcommand\thesubsection{\alph{subsection}}
+	
+\author{Христолюбов Максим, 771}
+\title{Домашнее задание 2}
+\date{ }
+
+\begin{document} % Конец преамбулы, начало текста.
+
+\maketitle
+
+\section*{Задание 1}  
+\hspace{0.5cm}
+$\sum\limits_{i=1}^n \sqrt{i^3+2i+5}>\sum\limits_{i=1}^n i^{\frac{3}{2}}>\frac{n}{2}\cdot\left( \frac{n}{2}\right)^{\frac{3}{2}}=\frac{1}{4\sqrt{2}}n^{\frac{5}{2}}$
+	
+$\sum\limits_{i=1}^n \sqrt{i^3+2i+5}<\sum\limits_{i=1}^n \sqrt{8i^3}<n\cdot 2\sqrt{2}\cdot n^{\frac{3}{2}}=2\sqrt{2} n^{\frac{5}{2}}$
+
+Значит, $\sum\limits_{i=1}^n \sqrt{i^3+2i+5} = \Theta(n^{\frac{5}{2}})$
+
+\section*{Задание 2}  
+\hspace{0.5cm}
+Т.~к. $\lim\limits_{n\to\infty}\frac{n^{100}}{3^n}=0$, то
+
+$f(n)=(3+o(1))^n+\Theta(n^{100})=3^n+n\cdot3^{n-1}\cdot o(1)+\ldots+(o(1))^n+o(3^n)=3^n+o(3^n)$
+
+$\log{f(n)}=\log(3^n+o(3^n))=\log(3^n\cdot(1+\frac{(o(1))^n}{3^n}))=n\cdot\log3+\log(1+\frac{(o(1))^n}{3^n})=n\cdot\log3+o(1)=\Theta(n)$
+
+\section*{Задание 3}  
+\hspace{0.5cm}
+
+$\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\sum\limits_{\substack{i=0 \\ i=i+1}}^{i<b}\left( \sum\limits_{\substack{j=0\\ j=j+1}}^{j<i}j+\sum\limits_{\substack{j=1\\j=2\cdot j}}^{j<n}j\right)$ - кол-во раз печати слова "алгоритм"
+
+$\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\sum\limits_{\substack{i=0 \\ i=i+1}}^{i<b}\left( \sum\limits_{\substack{j=0\\ j=j+1}}^{j<i}1+\sum\limits_{\substack{j=1\\j=2\cdot j}}^{j<n}1\right)<
+\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\sum\limits_{\substack{i=0 \\ i=i+1}}^{i<b}\left(
+i+2\log_{2}n\right)<\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\left( b\cdot\left( b+2\log_{2}n\right) \right) < \sqrt{n} \cdot \left( \sqrt{n}\cdot\left( \sqrt{n}+2\log_{2}n\right) \right)<3\cdot n^{\frac{3}{2}}$
+
+$\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\sum\limits_{\substack{i=0 \\ i=i+1}}^{i<b}\left( \sum\limits_{\substack{j=0\\ j=j+1}}^{j<i}1+\sum\limits_{\substack{j=1\\j=2\cdot j}}^{j<n}1\right)>
+\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\sum\limits_{\substack{i=0 \\ i=i+1}}^{i<b}\left(i-1+\frac{\log_{2}n}{2}-1\right)>\sum\limits_{\substack{b=1 \\ b=b+1}}^{b^2<n}\left( \frac{b}{2}\cdot \left( \frac{b}{2}+\frac{n}{2}-2\right) \right) > \frac{\sqrt{n}}{2} \cdot \left( \frac{\sqrt{n}}{4}\cdot\left( \frac{\sqrt{n}}{4}+\frac{\log_{2}n}{2}-2\right) \right) > \frac{n}{8}\cdot (\sqrt{n}-2) = \frac{1}{8}n^{\frac{3}{2}}-\frac{1}{4}n=\Theta(n^{\frac{3}{2}})$
+
+Значит, $g(n)=\Theta(n^{\frac{3}{2}})$
+
+\section*{Задание 4}  
+\hspace{0.5cm}
+а)
+
+$238x+385y=133$
+
+$34x+55y=19$
+
+\ $55\begin{pmatrix}
+	0\\1
+\end{pmatrix}\ \ 
+34\begin{pmatrix}
+1\\0
+\end{pmatrix}$
+
+$21\begin{pmatrix}
+	-1\\1
+\end{pmatrix}
+13\begin{pmatrix}
+	2\\-1
+\end{pmatrix}$
+
+\ $8\begin{pmatrix}
+-3\\2
+\end{pmatrix}\ \ 
+5\begin{pmatrix}
+5\\-3
+\end{pmatrix}$
+
+\ $3\begin{pmatrix}
+-8\\5
+\end{pmatrix}\ \
+2\begin{pmatrix}
+13\\-8
+\end{pmatrix}$
+
+$1\begin{pmatrix}
+-21\\13
+\end{pmatrix}$
+
+$\begin{pmatrix}
+x\\y
+\end{pmatrix}=
+\begin{pmatrix}
+-21\cdot 19\\13\cdot 19
+\end{pmatrix}+
+\begin{pmatrix}
+34\\-55
+\end{pmatrix}\cdot t$
+
+б)
+
+$143x+121y=52$
+
+НОД$(143,121)=11$, но $52$ не делиться на $11$, значит решений нет.
+
+\section*{Задание 5}  
+\hspace{0.5cm}
+Корректность алгоритма следует из корректности умножения столбиком двоичных записей чисел. Если в двоичной записи числа в разряде $0$, то умножение этого разряда на число не влияет на результат и опускается. Если при делении на 2 числа $x$ получается четное число, это значит что в соответствующем разряде двоичной записи стоит $0$. Для получения результата умножения нужно сложить произведения $2^i$ и числа (сдвиг числа в двоичном виде влево), где $i$-разряд двоичной записи с $1$. Именно это и делает алгоритм, значит, он корректен.
+
+На каждом шаге длина $y$ в двоичной записи уменьшается на $1$, т.~к. оно делится на 2, значит кол-во шагов $O(n)$, на каждом шаге выполняется сдвиг, проверка на четность чтением последнего бита и сложение чисел длины $n$, значит, сложность алгоритма $O(n^2)$
+
+\section*{Задание 5 из семинара}  
+\hspace{0.5cm}
+$11_{10}=1011_{2}$
+
+$3^{11}\ \mod 107=\left( \left(3^2\right) ^2\cdot 3\right) ^2\cdot 3\ \mod 107= 243^2\cdot 3\ \mod 107$
+
+$243\ \mod 107 = 29\ \mod 107$, значит, $243^2\ \mod 107 = 29^2\ \mod 107= 841 \mod 107 = 92 \mod 107$
+
+$3^{11}\ \mod 107=92\cdot 3\ \mod 107 = 62 \mod 107$ 
+
+
+
+\end{document} % Конец текста.
